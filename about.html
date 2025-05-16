@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Gul Computers and Laptops</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #1a1a1a !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 0.8rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #ffffff !important;
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+    color: #4e73df;
+}
+
+.nav-link {
+    color: #b0b0b0 !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ffffff !important;
+    background-color: rgba(78, 115, 223, 0.1);
+    border-radius: 4px;
+}
+
+/* Hero Section */
+.about-hero {
+    background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(17, 24, 39, 0.9)), 
+                url('images/about-hero-bg.jpg') center/cover no-repeat;
+    padding: 6rem 0;
+    text-align: center;
+    color: white;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #2d3748;
+}
+
+.about-hero h1 {
+    font-weight: 800;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.about-hero .lead {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Content Sections */
+section {
+    padding: 4rem 0;
+}
+
+h2 {
+    font-weight: 700;
+    color: #ffffff;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 2rem;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background: #4e73df;
+    border-radius: 3px;
+}
+
+.text-center h2:after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+p {
+    color: #b0b0b0;
+    margin-bottom: 1.5rem;
+}
+
+.lead {
+    color: #d1d5db;
+    font-size: 1.25rem;
+}
+
+/* Mission & Values */
+.bg-light {
+    background-color: #1a1a1a !important;
+    border-top: 1px solid #2d3748;
+    border-bottom: 1px solid #2d3748;
+}
+
+.mission-icon {
+    font-size: 2.5rem;
+    color: #4e73df;
+    margin-bottom: 1.5rem;
+}
+
+.mission-icon i {
+    background-color: rgba(78, 115, 223, 0.1);
+    padding: 1.5rem;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Team Section */
+.team-member {
+    text-align: center;
+    margin-bottom: 2.5rem; /* Consistent margin */
+    padding: 1.5rem; /* Consistent padding */
+}
+
+.team-member img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #252525;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.team-member:hover img {
+    border-color: #4e73df;
+    transform: scale(1.05);
+}
+
+.team-member h4 {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color:  Ascendant;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #4e73df;
+    transform: translateY(-3px);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 50px;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #4e73df;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem; /* Consistent margin */
+    padding-left: 40px; /* Consistent padding */
+}
+
+.timeline-item h4 {
+    color: #4e73df;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4e73df;
+    border: 4px solid #1a1a1a;
+}
+
+/* Call to Action */
+.bg-primary {
+    background: linear-gradient(135deg, #1e3a8a 0%, #111827 100%) !important;
+    border-top: 1px solid #2d3748;
+    border-bottom: 1px solid #2d3748;
+}
+
+.btn-light {
+    background-color: #ffffff;
+    color: #1e3a8a;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline-light {
+    color: #ffffff;
+    border-color: #ffffff;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Images */
+.img-fluid {
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.img-fluid:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific style for Our Story image */
+.story-image {
+    max-width: 100%;
+    width: 600px; /* Increased size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a !important;
+    border-top: 1px solid #2d3748;
+    padding: 3rem 0 !important;
+}
+
+footer h5 {
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+footer a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #4e73df !important;
+}
+
+footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer i {
+    margin-right: 10px;
+    color: #4e73df;
+}
+
+footer hr {
+    border-color: #2d3748;
+    margin: 2rem 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .about-hero .lead {
+        font-size: 1.2rem;
+    }
+    
+    .timeline {
+        padding-left: 30px;
+    }
+    
+    .timeline:before {
+        left: 10px;
+    }
+    
+    .timeline-item {
+        padding-left: 30px; /* Adjusted for mobile */
+        margin-bottom: 2.5rem; /* Consistent for mobile */
+    }
+    
+    .team-member {
+        padding: 1rem; /* Adjusted for mobile */
+        margin-bottom: 2rem; /* Consistent for mobile */
+    }
+    
+    .team-member img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .btn-light, .btn-outline-light {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .btn-outline-light {
+        margin-left: 0;
+    }
+
+    .story-image {
+        width: 100%; /* Full width on smaller screens */
+        max-width: 400px; /* Limit max size */
+    }
+}
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-laptop"></i> Gul Computers & Laptops
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="accessories.html">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact us.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container text-center">
+            <h1 class="display-4">About Gul Computers</h1>
+            <p class="lead">Your trusted partner in technology solutions since 2010</p>
+        </div>
+    </section>
+
+    <!-- About Company Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Our Story</h2>
+                    <p>Founded in 2010, Gul Computers and Laptops started as a small computer repair shop with a vision to provide quality technology solutions to our community. Over the years, we've grown into a premier destination for computers, laptops, and accessories, serving thousands of satisfied customers.</p>
+                     <p>What began as a one-person operation has now expanded to a team of 15 dedicated professionals, all committed to helping you find the perfect tech solutions for your needs.</p>
+                    <p>We pride ourselves on our honest advice, competitive pricing, and exceptional after-sales support that keeps our customers coming back year after year.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/gulcomp.jpeg" alt="Gul Computers Store" class="img-fluid rounded shadow story-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission and Values -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Our Mission & Values</h2>
+                <p class="lead">What drives us every day</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="text-center p-4">
+                        <div class="mission-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h4>Our Mission</h4>
+                        <p>To provide high-quality computer products and services at affordable prices, while delivering exceptional customer experiences that build lifelong relationships.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center p-4">
+                        <div class="mission-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h4>Our Vision</h4>
+                        <p>To be the most trusted technology provider in our region, known for our expertise, integrity, and commitment to customer satisfaction.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center p-4">
+                        <div class="mission-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h4>Our Values</h4>
+                        <p>Honesty, Expertise, Customer Focus, Innovation, and Community Engagement guide every decision we make.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Meet Our Team</h2>
+                <p class="lead">The people behind Gul Computers</p>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="images\haji.jpeg" alt="Founder" class="img-fluid">
+                        <h4>Haji MUhammad Iftikhar hussain</h4>
+                        <p class="text-muted">Founder</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="images\jabbar.jpg" alt="CEO" class="img-fluid">
+                        <h4>Abdul Jabbar khan</h4>
+                        <p class="text-muted">CEO</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="images\Haseeb.jpg" alt="Manager" class="img-fluid">
+                        <h4>Haseeb Ali</h4>
+                        <p class="text-muted">Manager</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="images\waqas.jpeg" alt="Sales Manager" class="img-fluid">
+                        <h4>Waqas Khan</h4>
+                        <p class="text-muted">Sales Manager</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Timeline -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Our Journey</h2>
+                <p class="lead">Milestones in our growth</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>2010</h4>
+                    <p>Founded as a small computer repair shop in downtown</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2012</h4>
+                    <p>Expanded to offer new computers and laptops</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2015</h4>
+                    <p>Moved to our current larger location</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2018</h4>
+                    <p>Expanded our team to 15 employees and opened a second location</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2020</h4>
+                    <p>Recognized as "Best Computer Store" by City Business Journal</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2025</h4>
+                    <p>Launched an E-commerce Website</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to experience the Gul Computers difference?</h2>
+            <a href="contact us.html" class="btn btn-light btn-lg me-3">Contact Us</a>
+            <a href="products.html" class="btn btn-outline-light btn-lg">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Gul Computers & Laptops</h5>
+                    <p>Providing quality computers and accessories since 2010.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="products.html" class="text-white">Products</a></li>
+                        <li><a href="accessories.html" class="text-white">Accessories</a></li>
+                        <li><a href="services.html" class="text-white">Services</a></li>
+                        <li><a href="contact us.html" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt"></i>Computer Market, Malik Plaza, Bank Rd, Saddar, Rawalpindi, 46000</p>
+                    <p><i class="fas fa-phone"></i>+923485387487</p>
+                    <p><i class="fas fa-envelope"></i>qhaseeb911@gmail.com</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">© 2025 Gul Computers & Laptops. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

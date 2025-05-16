@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessories - Gul Computers & Laptops</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .category-header {
+            background: linear-gradient(90deg, #4361ee, #3a0ca3);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-header i {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .accessory-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            height: 100%;
+        }
+        
+        .accessory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .card-img-container {
+            height: 200px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .accessory-img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .accessory-card:hover .accessory-img {
+            transform: scale(1.05);
+        }
+        
+        .badge-discount {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: #4361ee;
+            font-size: 1.2rem;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            color: #f59e0b;
+            font-size: 0.9rem;
+        }
+
+        /* Uniform Add to Cart Button */
+        .add-to-cart {
+            width: 100px;
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #1a1a1a !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            padding: 0.8rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #ffffff !important;
+        }
+
+        .navbar-brand i {
+            margin-right: 8px;
+            color: #4e73df;
+        }
+
+        .nav-link {
+            color: #b0b0b0 !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #ffffff !important;
+            background-color: rgba(78, 115, 223, 0.1);
+            border-radius: 4px;
+        }
+
+        /* Cart Icon */
+        .fa-shopping-cart {
+            color: #dc3545 !important;
+            font-size: 1.5rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover .fa-shopping-cart {
+            transform: scale(1.2);
+        }
+
+        /* Cart Counter */
+        .cart-counter {
+            position: relative;
+            top: -12px;
+            right: -12px;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50%;
+            padding: 3px 9px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #111827 100%) !important;
+            padding: 5rem 0 !important;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        .hero h1 {
+            font-weight: 800;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .lead {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero .btn-light {
+            background-color: #ffffff;
+            color: #1e3a8a;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .hero .btn-light:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Section Headings */
+        h2 {
+            font-weight: 700;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 2rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #4e73df;
+            border-radius: 3px;
+        }
+
+        /* Cards */
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #2d2d2d;
+            border-radius: 8px !important;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: #4e73df;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #2d2d2d;
+        }
+
+        .card-title {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .card-text {
+            color: #b0b0b0;
+        }
+
+        .card-footer {
+            border-top: 1px solid #2d2d2d;
+            background-color: #252525 !important;
+        }
+
+        .btn-primary {
+            background-color: #4e73df;
+            border-color: #4e73df;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #3b5ab5;
+            border-color: #3b5ab5;
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .bg-light {
+            background-color: #1a1a1a !important;
+            border-top: 1px solid #2d3748;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        .services i {
+            color: #4e73df !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .services h4 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .services p {
+            color: #b0b0b0;
+        }
+
+        /* Carousel */
+        .carousel {
+            margin: 3rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .carousel-caption {
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 8px;
+            padding: 2rem;
+            bottom: 3rem !important;
+        }
+
+        .carousel-caption h5 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .carousel-indicators button {
+            background-color: #4e73df !important;
+            width: 10px !important;
+            height: 10px !important;
+            border-radius: 50%;
+            margin: 0 5px !important;
+        }
+
+        .carousel-control-prev, .carousel-control-next {
+            width: 5% !important;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a !important;
+            border-top: 1px solid #2d3748;
+            padding: 3rem 0 !important;
+        }
+
+        footer h5 {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        footer a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #4e73df !important;
+        }
+
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer i {
+            margin-right: 10px;
+            color: #4e73df;
+        }
+
+        footer hr {
+            border-color: #2d3748;
+            margin: 2rem 0;
+        }
+
+        /* Toast Notification */
+        .custom-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .custom-toast .toast-message {
+            margin-right: 15px;
+        }
+
+        .custom-toast .toast-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .lead {
+                font-size: 1.2rem;
+            }
+            
+            .carousel-item img {
+                height: 300px;
+            }
+            
+            .carousel-caption {
+                bottom: 1rem !important;
+                padding: 1rem;
+            }
+            
+            .carousel-caption h5 {
+                font-size: 1.2rem;
+            }
+
+            .fa-shopping-cart {
+                font-size: 1.3rem !important;
+            }
+
+            .cart-counter {
+                top: -10px;
+                right: -10px;
+                padding: 2px 8px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-laptop"></i> Gul Computers & Laptops
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="accessories.html">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact us.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-counter" id="cartCounter">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-primary text-white py-5">
+        <div class="container text-center">
+            <h1 class="display-4">Computer & Laptop Accessories</h1>
+            <p class="lead">Enhance your computing experience with our premium accessories</p>
+        </div>
+    </header>
+
+    <!-- Accessories Categories -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Bags Category -->
+            <div class="category-header">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                    <h3 class="mb-0">Laptop Bags & Backpacks</h3>
+                    <p class="mb-0">Protect and carry your devices in style</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Bag 1 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <span class="badge bg-danger badge-discount">20% OFF</span>
+                        <div class="card-img-container">
+                            <img src="images/premiumbag.jpeg" class="accessory-img" alt="Premium Laptop Bag">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Premium Laptop Backpack</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-muted">(128)</span>
+                            </div>
+                            <p class="card-text">Water-resistant with USB charging port and anti-theft design</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨6,936.12</span>
+                                    <span class="original-price">₨8,746.12</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="bag1" data-name="Premium Laptop Backpack" data-price="6936.12" data-image="images/premiumbag.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bag 2 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <div class="card-img-container">
+                            <img src="images/bsnesbag.jpeg" class="accessory-img" alt="Business Laptop Bag">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Business Laptop Briefcase</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-muted">(86)</span>
+                            </div>
+                            <p class="card-text">Professional leather bag with multiple compartments</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨8,333.62</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="bag2" data-name="Business Laptop Briefcase" data-price="8333.62" data-image="images/bsnesbag.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bag 3 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <span class="badge bg-success badge-discount">NEW</span>
+                        <div class="card-img-container">
+                            <img src="images/sleevelptop.jpeg" class="accessory-img" alt="Slim Laptop Sleeve">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Slim Laptop Sleeve</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-muted">(214)</span>
+                            </div>
+                            <p class="card-text">Neoprene sleeve with extra padding for 13-15" laptops</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨3,468.62</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="bag3" data-name="Slim Laptop Sleeve" data-price="3468.62" data-image="images/sleevelptop.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bag 4 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <div class="card-img-container">
+                            <img src="images/trvlbg.jpeg" class="accessory-img" alt="Travel Backpack">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Travel Backpack</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-muted">(157)</span>
+                            </div>
+                            <p class="card-text">40L capacity with dedicated laptop compartment</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨9,722.49</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="bag4" data-name="Travel Backpack" data-price="9722.49" data-image="images/trvlbg.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chargers Category -->
+            <div class="category-header">
+                <i class="fas fa-bolt"></i>
+                <div>
+                    <h3 class="mb-0">Chargers & Power Adapters</h3>
+                    <p class="mb-0">Keep your devices powered up</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Charger 1 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <div class="card-img-container">
+                            <img src="images/Cchrger.jpeg" class="accessory-img" alt="USB-C Charger">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">65W USB-C Charger</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-muted">(92)</span>
+                            </div>
+                            <p class="card-text">Fast charging for laptops, tablets, and phones</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨5,547.24</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="charger1" data-name="65W USB-C Charger" data-price="5547.24" data-image="images/Cchrger.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charger 2 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <span class="badge bg-danger badge-discount">15% OFF</span>
+                        <div class="card-img-container">
+                            <img src="images/mgchrger.jpeg" class="accessory-img" alt="MagSafe Charger">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">MagSafe Charger</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-muted">(203)</span>
+                            </div>
+                            <p class="card-text">Magnetic wireless charger for Apple devices</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨5,899.30</span>
+                                    <span class="original-price">₨6,943.62</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="charger2" data-name="MagSafe Charger" data-price="5899.30" data-image="images/mgchrger.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charger 3 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <div class="card-img-container">
+                            <img src="images/dualportcrgr.jpeg" class="accessory-img" alt="Car Charger">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Dual Port Car Charger</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-muted">(178)</span>
+                            </div>
+                            <p class="card-text">36W fast charging with USB-C and USB-A ports</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨2,774.49</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="charger3" data-name="Dual Port Car Charger" data-price="2774.49" data-image="images/dualportcrgr.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charger 4 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <span class="badge bg-success badge-discount">NEW</span>
+                        <div class="card-img-container">
+                            <img src="images/wirelsschrgr.jpeg" class="accessory-img" alt="Wireless Charging Pad">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Wireless Charging Pad</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-muted">(64)</span>
+                            </div>
+                            <p class="card-text">15W fast wireless charger with LED indicator</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨4,162.87</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="charger4" data-name="Wireless Charging Pad" data-price="4162.87" data-image="images/wirelsschrgr.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cables Category -->
+            <div class="category-header">
+                <i class="fas fa-plug"></i>
+                <div>
+                    <h3 class="mb-0">Cables & Adapters</h3>
+                    <p class="mb-0">Connect and transfer with ease</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Cable 1 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <div class="card-img-container">
+                            <img src="images/ctocble.jpeg" class="accessory-img" alt="USB-C Cable">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">USB-C to USB-C Cable</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-muted">(312)</span>
+                            </div>
+                            <p class="card-text">100W 6ft braided cable with 480Mbps data transfer</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨2,080.37</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="cable1" data-name="USB-C to USB-C Cable" data-price="2080.37" data-image="images/ctocble.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cable 2 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <span class="badge bg-danger badge-discount">25% OFF</span>
+                        <div class="card-img-container">
+                            <img src="images/hdmi4k.jpeg" class="accessory-img" alt="HDMI Cable">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">4K HDMI Cable</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-muted">(187)</span>
+                            </div>
+                            <p class="card-text">10ft high-speed cable with Ethernet support</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨1,561.46</span>
+                                    <span class="original-price">₨2,080.37</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="cable2" data-name="4K HDMI Cable" data-price="1561.46" data-image="images/hdmi4k.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cable 3 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <div class="card-img-container">
+                            <img src="images/applecble.jpeg" class="accessory-img" alt="Thunderbolt Cable">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Thunderbolt 4 Cable</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-muted">(96)</span>
+                            </div>
+                            <p class="card-text">40Gbps data transfer with 100W power delivery</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨6,936.12</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="cable3" data-name="Thunderbolt 4 Cable" data-price="6936.12" data-image="images/applecble.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cable 4 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <div class="card-img-container">
+                            <img src="images/multicbale.jpeg" class="accessory-img" alt="Multi-Port Adapter">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">USB-C Multi-Port Adapter</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-muted">(143)</span>
+                            </div>
+                            <p class="card-text">HDMI, USB-A, USB-C, SD card reader and Ethernet</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨4,857.24</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="cable4" data-name="USB-C Multi-Port Adapter" data-price="4857.24" data-image="images/multicbale.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mice & Keyboards Category -->
+            <div class="category-header">
+                <i class="fas fa-keyboard"></i>
+                <div>
+                    <h3 class="mb-0">Mice & Keyboards</h3>
+                    <p class="mb-0">Precision and comfort for productivity</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Mouse 1 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <span class="badge bg-success badge-discount">NEW</span>
+                        <div class="card-img-container">
+                            <img src="images/ecomouse.jpeg" class="accessory-img" alt="Wireless Mouse">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Wireless Ergonomic Mouse</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-muted">(276)</span>
+                            </div>
+                            <p class="card-text">Bluetooth 5.0 with silent clicks and adjustable DPI</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨4,162.87</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="mouse1" data-name="Wireless Ergonomic Mouse" data-price="4162.87" data-image="images/ecomouse.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mouse 2 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <div class="card-img-container">
+                            <img src="images/redmouse.jpeg" class="accessory-img" alt="Gaming Mouse">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">RGB Gaming Mouse</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-muted">(198)</span>
+                            </div>
+                            <p class="card-text">16000 DPI, 8 programmable buttons with customizable RGB</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨6,936.12</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="mouse2" data-name="RGB Gaming Mouse" data-price="6936.12" data-image="images/redmouse.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Keyboard 1 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <span class="badge bg-danger badge-discount">30% OFF</span>
+                        <div class="card-img-container">
+                            <img src="images/keyboard.jpeg" class="accessory-img" alt="Mechanical Keyboard">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Mechanical Keyboard</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-muted">(342)</span>
+                            </div>
+                            <p class="card-text">Cherry MX Brown switches with RGB backlighting</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨9,722.49</span>
+                                    <span class="original-price">₨13,887.49</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="keyboard1" data-name="Mechanical Keyboard" data-price="9722.49" data-image="images/keyboard.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Keyboard 2 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card accessory-card h-100">
+                        <div class="card-img-container">
+                            <img src="images/keyboard2.jpeg" class="accessory-img" alt="Wireless Keyboard">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Slim Wireless Keyboard</h5>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-muted">(167)</span>
+                            </div>
+                            <p class="card-text">Ultra-thin design with silent scissor-switch keys</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="price">₨5,547.24</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-id="keyboard2" data-name="Slim Wireless Keyboard" data-price="5547.24" data-image="images/keyboard2.jpeg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Can't Find What You Need?</h2>
+            <p class="lead mb-4">Our experts can help you find the perfect accessories for your setup</p>
+            <a href="contact us.html" class="btn btn-light btn-lg me-3">Contact Us</a>
+            <a href="tel:+923485387487" class="btn btn-outline-light btn-lg">Call Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Gul Computers & Laptops</h5>
+                    <p>Your trusted source for computers and accessories since 2010.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="products.html" class="text-white">Products</a></li>
+                        <li><a href="accessories.html" class="text-white">Accessories</a></li>
+                        <li><a href="about.html" class="text-white">About Us</a></li>
+                        <li><a href="contact us.html" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Computer Market, Malik Plaza, Bank Rd, Saddar, Rawalpindi, 46000</p>
+                    <p><i class="fas fa-phone me-2"></i> +923485387487</p>
+                    <p><i class="fas fa-envelope me-2"></i> qhaseeb911@gmail.com</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">© 2023 Gul Computers & Laptops. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize cart
+            let cart = [];
+            try {
+                const savedCart = localStorage.getItem('cart');
+                if (savedCart) {
+                    cart = JSON.parse(savedCart);
+                }
+            } catch (error) {
+                console.error('Error loading cart from localStorage:', error);
+            }
+            
+            // Update cart counter
+            const updateCartCounter = () => {
+                const cartCounter = document.getElementById('cartCounter');
+                if (cartCounter) {
+                    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                    cartCounter.textContent = totalItems;
+                }
+            };
+            
+            // Save cart to localStorage
+            const saveCart = () => {
+                try {
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                } catch (error) {
+                    console.error('Error saving cart to localStorage:', error);
+                }
+            };
+            
+            // Show custom toast notification
+            const showToast = (message) => {
+                const toast = document.createElement('div');
+                toast.className = 'custom-toast';
+                toast.innerHTML = `
+                    <span class="toast-message">${message}</span>
+                    <button class="toast-close">×</button>
+                `;
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.transition = 'opacity 0.5s';
+                    toast.style.opacity = '0';
+                    setTimeout(() => toast.remove(), 500);
+                }, 3000);
+                
+                toast.querySelector('.toast-close').addEventListener('click', () => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => toast.remove(), 500);
+                });
+            };
+            
+            // Add to cart functionality
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    const name = button.getAttribute('data-name');
+                    const price = parseFloat(button.getAttribute('data-price'));
+                    const image = button.getAttribute('data-image');
+
+                    const existingItem = cart.find(item => item.id === id);
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            id,
+                            name,
+                            price,
+                            image,
+                            quantity: 1
+                        });
+                    }
+                    
+                    saveCart();
+                    updateCartCounter();
+                    showToast(`${name} added to cart!`);
+                });
+            });
+            
+            // Initial cart counter update
+            updateCartCounter();
+        });
+    </script>
+</body>
+</html>

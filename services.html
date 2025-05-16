@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Gul Computers & Laptops</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome@6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .product-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .badge-discount {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.8rem;
+        }
+        .filter-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .category-title {
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #1a1a1a !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            padding: 0.8rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #ffffff !important;
+        }
+
+        .navbar-brand i {
+            margin-right: 8px;
+            color: #4e73df;
+        }
+
+        .nav-link {
+            color: #b0b0b0 !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #ffffff !important;
+            background-color: rgba(78, 115, 223, 0.1);
+            border-radius: 4px;
+        }
+
+        /* Page Header */
+        header.bg-primary {
+            background: linear-gradient(135deg, #1e3a8a 0%, #111827 100%) !important;
+            padding: 4rem 0 !important;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        header h1 {
+            font-weight: 800;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header .lead {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        /* Filter Section */
+        .bg-light {
+            background-color: #1a1a1a !important;
+            border-top: 1px solid #2d3748;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        .filter-section {
+            background-color: #252525 !important;
+            border-radius: 8px;
+            padding: 1.5rem !important;
+            border: 1px solid #2d2d2d;
+        }
+
+        .filter-section h5 {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #4e73df;
+            padding-bottom: 0.5rem;
+        }
+
+        .form-label {
+            color: #b0b0b0;
+            font-weight: 500;
+        }
+
+        .form-select {
+            background-color: #1e1e1e;
+            border-color: #2d2d2d;
+            color: #e0e0e0;
+            padding: 0.5rem 1rem;
+        }
+
+        .form-select:focus {
+            background-color: #1e1e1e;
+            border-color: #4e73df;
+            color: #e0e0e0;
+            box-shadow: 0 0 0 0.25rem rgba(78, 115, 223, 0.25);
+        }
+
+        /* Product Cards */
+        .product-card {
+            background-color: #1e1e1e;
+            border: 1px solid #2d2d2d;
+            border-radius: 8px !important;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: #4e73df;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: contain;
+            padding: 1rem;
+            background-color: #252525;
+            border-bottom: 1px solid #2d2d2d;
+        }
+
+        .card-title {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .card-text {
+            color: #b0b0b0;
+            margin-bottom: 0.5rem;
+        }
+
+        .text-danger {
+            color: #ff6b6b !important;
+        }
+
+        .text-muted {
+            color: #6c757d !important;
+        }
+
+        .text-decoration-line-through {
+            color: #6c757d !important;
+        }
+
+        .card-footer {
+            border-top: 1px solid #2d2d2d;
+            background-color: #252525 !important;
+            padding: 1rem !important;
+        }
+
+        /* Badges */
+        .badge-discount {
+            background-color: #4e73df !important;
+            color: white;
+            padding: 0.35em 0.65em;
+            border-radius: 50px;
+            z-index: 1;
+        }
+
+        .badge.bg-danger {
+            background-color: #dc3545 !important;
+        }
+
+        .badge.bg-success {
+            background-color: #28a745 !important;
+        }
+
+        /* Category Titles */
+        .category-title {
+            color: #ffffff;
+            font-weight: 700;
+            border-bottom: 2px solid #4e73df;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Dropdowns */
+        .dropdown-toggle {
+            background-color: #252525;
+            border-color: #2d2d2d;
+            color: #e0e0e0;
+        }
+
+        .dropdown-menu {
+            background-color: #252525;
+            border: 1px solid #2d2d2d;
+        }
+
+        .dropdown-item {
+            color: #e0e0e0;
+        }
+
+        .dropdown-item:hover {
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: #4e73df;
+            border-color: #4e73df;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #3b5ab5;
+            border-color: #3b5ab5;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-secondary {
+            color: #e0e0e0;
+            border-color: #2d2d2d;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #252525;
+            border-color: #4e73df;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a !important;
+            border-top: 1px solid #2d3748;
+            padding: 3rem 0 !important;
+        }
+
+        footer h5 {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        footer a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #4e73df !important;
+        }
+
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer i {
+            margin-right: 10px;
+            color: #4e73df;
+        }
+
+        footer hr {
+            border-color: #2d3748;
+            margin: 2rem 0;
+        }
+
+        /* Star Ratings */
+        .text-warning {
+            color: #ffc107 !important;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header .lead {
+                font-size: 1.1rem;
+            }
+            
+            .filter-section {
+                margin-bottom: 2rem;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+            }
+        }
+    
+        .service-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/service-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        .service-card {
+            transition: transform 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+        .service-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .service-feature i {
+            color: #0d6efd;
+            margin-right: 10px;
+        }
+        .pricing-card {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        .pricing-card:hover {
+            border-color: #0d6efd;
+            box-shadow: 0 10px 20px rgba(13, 110, 253, 0.1);
+        }
+        .pricing-header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .pricing-title {
+            font-weight: 600;
+            color: #0d6efd;
+        }
+        .pricing-price {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .pricing-features {
+            padding: 20px;
+        }
+        .pricing-features li {
+            margin-bottom: 10px;
+            list-style-type: none;
+        }
+        .pricing-features li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #0d6efd;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-laptop"></i> Gul Computers & Laptops
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="accessories.html">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact us.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="service-hero">
+        <div class="container text-center">
+            <h1 class="display-4">Our Services</h1>
+            <p class="lead">Expert computer solutions to keep your devices running smoothly</p>
+        </div>
+    </header>
+
+    <!-- Main Services Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Computer Services You Can Trust</h2>
+                <p class="lead">We provide comprehensive solutions for all your tech needs</p>
+            </div>
+
+            <div class="row">
+                <!-- Service 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h4>Computer Repair</h4>
+                            <p>Fast and reliable repair services for all computer and laptop issues.</p>
+                            <div class="text-start mt-4">
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Virus & Malware Removal</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Hardware Diagnostics</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Screen Replacement</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Data Recovery</span>
+                                </div>
+                            </div>
+                            <a href="https://wa.link/gtrr80" class="btn btn-primary mt-4">Get Service</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <h4>Hardware Upgrades</h4>
+                            <p>Boost your computer's performance with our upgrade services.</p>
+                            <div class="text-start mt-4">
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>RAM Upgrades</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>SSD Installation</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Graphics Card Upgrade</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Battery Replacement</span>
+                                </div>
+                            </div>
+                            <a href="https://wa.link/gtrr80" class="btn btn-primary mt-4">Get Service</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4>IT Support</h4>
+                            <p>Professional IT services for homes and businesses.</p>
+                            <div class="text-start mt-4">
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Network Setup</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Software Installation</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Data Backup Solutions</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>24/7 Remote Support</span>
+                                </div>
+                            </div>
+                            <a href="https://wa.link/gtrr80" class="btn btn-primary mt-4">Get Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Service Packages</h2>
+                <p class="lead">Affordable pricing for all your computer service needs</p>
+            </div>
+
+            <div class="row">
+                <!-- Basic Plan -->
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card h-100">
+                        <div class="pricing-header text-center">
+                            <h4 class="pricing-title">Basic</h4>
+                            <div class="pricing-price">4999<span class="text-muted">/service</span></div>
+                            <small class="text-muted">One-time service</small>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li>Virus Removal</li>
+                                <li>System Tune-up</li>
+                                <li>Hardware Diagnostics</li>
+                                <li>1 Year Warranty</li>
+                                <li>Email Support</li>
+                            </ul>
+                            <a href="https://wa.link/gtrr80" class="btn btn-outline-primary w-100 mt-3">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card h-100">
+                        <div class="pricing-header text-center bg-primary text-white">
+                            <h4 class="pricing-title text-white">Pro</h4>
+                            <div class="pricing-price text-white">9999<span class="text-white-50">/month</span></div>
+                            <small class="text-white-50">For small businesses</small>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li>All Basic Features</li>
+                                <li>Unlimited Remote Support</li>
+                                <li>Priority Service</li>
+                                <li>3 Year Warranty</li>
+                                <li>24/7 Phone Support</li>
+                                <li>Quarterly Maintenance</li>
+                            </ul>
+                            <a href="https://wa.link/gtrr80" class="btn btn-primary w-100 mt-3">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card h-100">
+                        <div class="pricing-header text-center">
+                            <h4 class="pricing-title">Enterprise</h4>
+                            <div class="pricing-price">19999<span class="text-muted">/month</span></div>
+                            <small class="text-muted">For large businesses</small>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li>All Pro Features</li>
+                                <li>On-site Support</li>
+                                <li>Network Monitoring</li>
+                                <li>5 Year Warranty</li>
+                                <li>Dedicated Technician</li>
+                                <li>Monthly Maintenance</li>
+                            </ul>
+                            <a href="https://wa.link/gtrr80" class="btn btn-outline-primary w-100 mt-3">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <img src="images\services.png" alt="Why Choose Us" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <h2>Why Choose Gul Computers?</h2>
+                    <div class="d-flex mb-3">
+                        <div class="me-4">
+                            <i class="fas fa-award fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Certified Technicians</h5>
+                            <p>Our team consists of certified professionals with years of experience in computer repair and IT services.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="me-4">
+                            <i class="fas fa-clock fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Fast Turnaround</h5>
+                            <p>Most repairs completed within 24 hours. We understand you can't be without your computer.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="me-4">
+                            <i class="fas fa-shield-alt fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Warranty Guarantee</h5>
+                            <p>All our services come with a warranty because we stand behind our work.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Get Started?</h2>
+            <p class="lead mb-4">Contact us today for a free diagnostic!</p>
+            <a href="https://wa.link/gtrr80" class="btn btn-light btn-lg me-3">Book Appointment</a>
+            <a href="tel:+923485387487" class="btn btn-outline-light btn-lg">Call Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Gul Computers & Laptops</h5>
+                    <p>Providing quality computers and services since 2010.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="products.html" class="text-white">Products</a></li>
+                        <li><a href="services.html" class="text-white">Services</a></li>
+                        <li><a href="about.html" class="text-white">About Us</a></li>
+                        <li><a href="accessories.html" class="text-white">Accessories</a></li>
+                        <li><a href="contact us.html" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> Computer Market, Malik Plaza, Bank Rd, Saddar, Rawalpindi, 46000</p>
+                    <p><i class="fas fa-phone"></i>+923485387487</p>
+                    <p><i class="fas fa-envelope"></i>qhaseeb911@gmail.com</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">© 2023 Gul Computers & Laptops. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
